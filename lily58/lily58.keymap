@@ -16,14 +16,14 @@
 		compatible = "zmk,keymap";
 
 		default_layer {
-// ------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------
 // |  `           |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   -   |
 // |  TAB         |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   \   |
 // |  MO(CTL,ESC) |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
 // | SHIFT        |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
 //                            | ALT  | GUI  | LWR  | SPACE  |  | ENTER | RAISE| BSPC  | GUI   |
 			bindings = <
-&kp     GRAV     &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                    &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &kp MINUS
+&kp     GRAV     &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                       &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS
 &kp     TAB      &kp Q     &kp W     &kp E     &kp R     &kp T                        &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSLH
 &mt LCTL ESC     &kp A     &kp S     &kp D     &kp F     &kp G                        &kp H     &kp J     &kp K     &kp L     &kp SCLN  &kp QUOT
 &kp     LSFT     &kp Z     &kp X     &kp C     &kp V     &kp B   &kp LBKT  &kp RBKT   &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  &kp RSFT
@@ -32,31 +32,31 @@
 		};
 
 		lower_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |  btclr | bt0    | bt1    | bt2    |        |      |                   |        |       |       |      |       |       |
-// |  F1    |  F2    | CAG(W) |  F4    |  F5    |  F6  |                   |  F7    |  F8   |  F9   |  F10 |  F11  |  F12  |
-// |   `    |  !     | CAG(S) |  \#    | CAG(F) |  %   |                   |  ^     |  &    |  *    |  (   |   )   |   ~   |
-// |        | CAG(Z) | CAG(X) | CAG(C) |        |      |        |  |       | CAG(N) |  _    |  +    |  {   |   }   |  "|"  |
+// -------------------------------------------------------------------------------------------------------------------------
+// |  btclr | bt0    | bt1    | bt2    |        |      |                   |  F1    |  F2   |  F3   |  F4  |  F5   |  F6   |
+// |        |        | CAG(W) |        |        |      |                   |  F7    |  F8   |  F9   |  F10 |  F11  |  F12  |
+// |   `    | CAG(A) | CAG(S) |  \#    | CAG(F) |  %   |                   |  ^     |  &    |  *    |  (   |   )   |   ~   |
+// |        | CAG(Z) | CAG(X) | CAG(C) |        |      |        |  |       | CAG(N) |  _    |  +    |  {   |   }   |   \   |
 //                            |        |        |      |        |  |       |        |       |       |
 			bindings = <
-&bt BT_CLR   &bt BT_SEL 0    &bt BT_SEL 1     &bt BT_SEL 2    &trans          &trans                      &trans          &trans           &trans          &trans          &trans          &trans
-&kp F1       &kp F2          &kp F3           &kp F4          &kp F5          &kp F6                      &kp F7          &kp F8           &kp F9          &kp F10         &kp F11         &kp F12
-&kp GRAV     &kp NUM_1       &kp NUM_2        &kp NUM_3       &kp NUM_4       &kp NUM_5                   &kp NUM_6       &kp NUM_7        &kp NUM_8       &kp NUM_9       &kp NUM_0       &kp TILD
-&trans       &trans          &trans           &trans          &trans          &trans   &trans   &trans    &trans          &kp MINUS        &kp EQL         &kp LBKT        &kp RBKT        &kp PIPE
-                             &trans           &trans          &trans          &trans                      &trans          &trans           &trans          &trans
+&bt BT_CLR   &bt BT_SEL 0      &bt BT_SEL 1      &bt BT_SEL 2      &trans            &trans                      &kp F1          &kp F2           &kp F3          &kp F4          &kp F5          &kp F6
+&trans       &trans            &kp LC(LA(LG(W))) &trans            &trans            &trans                      &kp F7          &kp F8           &kp F9          &kp F10         &kp F11         &kp F12
+&kp GRAV     &kp LC(LA(LG(A))) &kp LC(LA(LG(S))) &kp N3            &kp LC(LA(LG(F))) &kp N5                      &kp N6          &kp N7           &kp N8          &kp N9          &kp N0          &kp TILD
+&trans       &kp LC(LA(LG(Z))) &kp LC(LA(LG(X))) &kp LC(LA(LG(C))) &kp LC(LA(LG(V))) &trans   &trans   &trans    &trans          &kp MINUS        &kp EQL         &kp LBKT        &kp RBKT        &kp NON_US_BSLH
+                               &trans            &trans            &trans            &trans                      &trans          &trans           &trans          &trans
 			>;
 		};
 
 		raise_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |       |     |     |      |      |      |                   |  btclr   |       |       |      |       |   =   |
-// |   `   |  1  |  2  |  3   |  4   |  5   |                   |  PRSC    | HOME  | PGDN  | PGUP | END   | INS   |
-// |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  <-      |   v   |  ^    |  ->  |       |      
+// ---------------------------------------------------------------------------------------------------------------
+// |       |     |     |      |      |      |                   |  btclr   |       |       |      |       |   =  |
+// |       |  6  |  7  |  8   |  9   |  0   |                   |  PRSC    | HOME  | PGDN  | PGUP | END   | INS  |
+// |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  <-      |   v   |  ^    |  ->  |       |      |
 // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +       |   -   |   =   |  [   |   ]   |      |
 //                     |      |      |      |        |  |       |          | DEL   |       |
 			bindings = <
 &trans   &trans    &trans    &trans    &trans    &trans                       &bt BT_CLR &trans    &trans    &trans    &trans    &kp EQL
-&kp GRAV &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                    &kp PRSC   &kp HOME  &kp PGDN  &kp PGUP  &kp END   &kp INS
+&trans   &kp N6    &kp N7    &kp N8    &kp N9    &kp N0                       &kp PRSC   &kp HOME  &kp PGDN  &kp PGUP  &kp END   &kp INS
 &kp F1   &kp F2    &kp F3    &kp F4    &kp F5    &kp F6                       &kp LARW   &kp DARW  &kp UARW  &kp RARW  &trans    &trans
 &kp F7   &kp F8    &kp F9    &kp F10   &kp F11   &kp F12   &trans   &trans    &kp EQL    &kp MINUS &kp EQL   &kp LBKT  &kp RBKT  &trans
                    &trans    &trans    &trans    &trans                       &trans     &trans    &kp DEL   &trans
