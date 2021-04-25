@@ -27,39 +27,54 @@
 &kp     TAB      &kp Q     &kp W     &kp E     &kp R     &kp T                        &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSLH
 &mt LCTL ESC     &kp A     &kp S     &kp D     &kp F     &kp G                        &kp H     &kp J     &kp K     &kp L     &kp SCLN  &kp QUOT
 &kp     LSFT     &kp Z     &kp X     &kp C     &kp V     &kp B   &kp LBKT  &kp RBKT   &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  &kp RSFT
-                           &kp LALT  &kp LGUI  &mo 1     &kp SPC                      &kp RET   &mo 2     &kp BKSP  &kp RGUI
+                                     &kp LALT  &kp LGUI  &mo 1   &kp SPC   &kp RET    &mo 2     &kp BKSP  &kp RGUI
 			>;
 		};
 
 		lower_layer {
-// -------------------------------------------------------------------------------------------------------------------------
-// |  btclr | bt0    | bt1    | bt2    |        |      |                   |  F1    |  F2   |  F3   |  F4  |  F5   |  F6   |
-// |        |        | CAG(W) |        |        |      |                   |  F7    |  F8   |  F9   |  F10 |  F11  |  F12  |
-// |   `    | CAG(A) | CAG(S) |  \#    | CAG(F) |  %   |                   |  ^     |  &    |  *    |  (   |   )   |   ~   |
-// |        | CAG(Z) | CAG(X) | CAG(C) |        |      |        |  |       | CAG(N) |  _    |  +    |  {   |   }   |   \   |
-//                            |        |        |      |        |  |       |        |       |       |
+// --------------------------------------------------------------------------------------------------------------------------------
+// |  btclr | bt0    | bt1    | bt2    | bt3    |      |                        |  F1    |  F2   |  F3     |  F4  |  F5   |  F6   |
+// |  V-    | V+     | CAG(W) |        |        |      |                        |  F7    |  F8   |  F9     |  F10 |  F11  |  F12  |
+// |  ESC   | CAG(A) | CAG(S) | CAG(D) | CAG(F) |      |                        |        |       |  CAG(K) |      |       |   ~   |
+// |  P/P   | CAG(Z) | CAG(X) | CAG(C) | CAG(V) |      |          |  |          | CAG(N) |  _    |  +      |  {   |   }   |   \   |
+//                            | PREV   | NEXT   |      | CAG(ESC) |  | CAG(RET) |  ADJ   |       |
 			bindings = <
-&bt BT_CLR   &bt BT_SEL 0      &bt BT_SEL 1      &bt BT_SEL 2      &trans            &trans                      &kp F1          &kp F2           &kp F3          &kp F4          &kp F5          &kp F6
-&trans       &trans            &kp LC(LA(LG(W))) &trans            &trans            &trans                      &kp F7          &kp F8           &kp F9          &kp F10         &kp F11         &kp F12
-&kp GRAV     &kp LC(LA(LG(A))) &kp LC(LA(LG(S))) &kp N3            &kp LC(LA(LG(F))) &kp N5                      &kp N6          &kp N7           &kp N8          &kp N9          &kp N0          &kp TILD
-&trans       &kp LC(LA(LG(Z))) &kp LC(LA(LG(X))) &kp LC(LA(LG(C))) &kp LC(LA(LG(V))) &trans   &trans   &trans    &trans          &kp MINUS        &kp EQL         &kp LBKT        &kp RBKT        &kp NON_US_BSLH
-                               &trans            &trans            &trans            &trans                      &trans          &trans           &trans          &trans
+&bt BT_CLR   &bt BT_SEL 0      &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3      &trans                                         &kp F1            &kp F2      &kp F3            &kp F4    &kp F5     &kp F6
+&kp K_VOL_DN &kp K_VOL_UP      &kp LC(LA(LG(W))) &trans            &trans            &trans                                         &kp F7            &kp F8      &kp F9            &kp F10   &kp F11    &kp F12
+&kp ESC      &kp LC(LA(LG(A))) &kp LC(LA(LG(S))) &kp LC(LA(LG(D))) &kp LC(LA(LG(F))) &trans                                         &trans            &trans      &kp LC(LA(LG(K))) &trans    &trans     &kp TILD
+&kp K_PP     &kp LC(LA(LG(Z))) &kp LC(LA(LG(X))) &kp LC(LA(LG(C))) &kp LC(LA(LG(V))) &trans   &trans            &trans              &kp LC(LA(LG(N))) &kp MINUS   &kp EQL           &kp LBKT  &kp RBKT   &kp NON_US_BSLH
+                                                 &kp K_PREV        &kp K_NEXT        &trans   &kp LC(LS(ESC))   &kp LC(LA(LG(RET))) &mo 3             &trans      &trans
 			>;
 		};
 
 		raise_layer {
 // ---------------------------------------------------------------------------------------------------------------
-// |       |     |     |      |      |      |                   |  btclr   |       |       |      |       |   =  |
-// |       |  6  |  7  |  8   |  9   |  0   |                   |  PRSC    | HOME  | PGDN  | PGUP | END   | INS  |
-// |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  <-      |   v   |  ^    |  ->  |       |      |
-// |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +       |   -   |   =   |  [   |   ]   |      |
-//                     |      |      |      |        |  |       |          | DEL   |       |
+// | F1  |  F2  |  F3  |  1   |  2  |  3  |                   |  btclr   |       |       |      |       |   =  |
+// | F4  |  F5  |  F6  |  4   |  5  |  6  |                   |  HOME    | PGDN  | PGUP  | END  | PRSC  | INS  |
+// | F7  |  F8  |  F9  |  7   |  8  |  9  |                   |  <-      |   v   |  ^    |  ->  |       |      |
+// | F10 |  F11 |  F12 |  0   |  *  |  -  |                   |  +       |   =   |   [   |  ]   |       |      |
+//                     |      |     | ADJ |        |  |       |          | DEL   |       |
 			bindings = <
-&trans   &trans    &trans    &trans    &trans    &trans                       &bt BT_CLR &trans    &trans    &trans    &trans    &kp EQL
-&trans   &kp N6    &kp N7    &kp N8    &kp N9    &kp N0                       &kp PRSC   &kp HOME  &kp PGDN  &kp PGUP  &kp END   &kp INS
-&kp F1   &kp F2    &kp F3    &kp F4    &kp F5    &kp F6                       &kp LARW   &kp DARW  &kp UARW  &kp RARW  &trans    &trans
-&kp F7   &kp F8    &kp F9    &kp F10   &kp F11   &kp F12   &trans   &trans    &kp EQL    &kp MINUS &kp EQL   &kp LBKT  &kp RBKT  &trans
-                   &trans    &trans    &trans    &trans                       &trans     &trans    &kp DEL   &trans
+&trans   &trans    &trans    &kp N1   &kp N2     &kp N3                       &bt BT_CLR &trans    &trans    &trans    &trans    &kp EQL
+&trans   &trans    &trans    &kp N4   &kp N5     &kp N6                       &kp HOME   &kp PGDN  &kp PGUP  &kp END   &kp PRSC  &kp INS
+&kp F1   &kp F2    &kp F3    &kp N7   &kp N8     &kp N9                       &kp LARW   &kp DARW  &kp UARW  &kp RARW  &trans    &trans
+&kp F7   &kp F8    &kp F9    &kp N0   &kp LS(N8) &kp MINUS   &trans   &trans  &kp PLUS   &kp EQL   &kp LBKT  &kp RBKT  &trans    &trans
+                   &trans    &trans   &mo 3      &trans                       &trans     &trans    &kp DEL   &trans
+			>;
+		};
+       	adjust_layer {
+// ---------------------------------------------------------------------------------------------------------------
+// |       |     |     |      |      |      |                   |         |        |        |         |       |      |
+// |       |     |     |      |      |      |                   |         |        |        |         |       |      |
+// |       |     |     |      |      |      |                   | CAG(<-) | CAG(v) | CAG(^) | CAG(->) |       |      |
+// |       |     |     |      |      |      |        |  |       |         |        |        |         |       |      |
+//                     |      |      |      |        |  |       |         |        |        |
+			bindings = <
+&trans   &trans    &trans    &trans    &trans    &trans                       &trans               &trans               &trans               &trans               &trans    &trans
+&trans   &trans    &trans    &trans    &trans    &trans                       &trans               &trans               &trans               &trans               &trans    &trans
+&trans   &trans    &trans    &trans    &trans    &trans                       &kp LC(LA(LG(LARW))) &kp LC(LA(LG(DARW))) &kp LC(LA(LG(UARW))) &kp LC(LA(LG(RARW))) &trans    &trans
+&trans   &trans    &trans    &trans    &trans    &trans    &trans   &trans    &trans               &trans               &trans               &trans               &trans    &trans
+                   &trans    &trans    &trans    &trans                       &trans               &trans               &trans               &trans
 			>;
 		};
 	};
