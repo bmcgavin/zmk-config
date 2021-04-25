@@ -6,38 +6,39 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 
 / {
     keymap {
         compatible = "zmk,keymap";
         
         default_layer {
-// -----------------------------
-// | PGUP  |  HOME |  INS      |
-// | PGDN  |  END  |  DEL      |
-// | MO(1) |  ^    |  CAG(APP) |
-// | <-    |  v    |  ->       |
-// -----------------------------
+// ------------------------
+// | INS   |  MO(1) |  -> |
+// | END   |  PGUP  |  ^  |
+// | HOME  |  PGDN  |  v  |
+// | SHFT  |  CTRL  |  <- |
+// ------------------------
             bindings = <
-    &kp PGUP &kp HOME &kp INS 
-    &kp PGDN &kp END  &kp DEL 
-    &mo 1    &kp UARW &kp NUM_3 
-    &kp LARW &kp DARW &kp RARW 
+    &kp INS  &mo 1    &kp RARW 
+    &kp END  &kp PGUP &kp UARW 
+    &kp HOME &kp PGDN &kp DARW 
+    &kp LSFT &kp LCTL &kp LARW 
             >;
         };
 
         nav_layer {
-// -----------------------
-// | _ |  HOME  |  PGUP  |
-// | _ |  END   |  PGDN  |
-// | _ |  _     |  _     |
-// | _ |  _     |  RET   |
-// -----------------------
+// --------------------------
+// | bt2   |  _  |  _       |
+// | bt1   |  _  |  LCAG(V) |
+// | bt0   |  _  |  LCAG(C) |
+// | btclr |  _  |  LCAG(X) |
+// --------------------------
             bindings = <
-    &trans &kp HOME &kp PGUP 
-    &trans &kp END  &kp PGDN 
-    &trans &trans   &trans 
-    &trans &trans   &kp RET
+    &bt BT_CLR   &trans &trans
+    &bt BT_SEL 0 &trans &kp LC(LA(LG(V))) 
+    &bt BT_SEL 1 &trans &kp LC(LA(LG(C))) 
+    &bt BT_SEL 2 &trans &kp LC(LA(LG(X)))
             >;
         };
     };
