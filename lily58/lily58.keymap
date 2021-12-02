@@ -2,16 +2,22 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-//todo :
-// shifted keys
-// emulate CAG on lower
-// mo(ctl,esc) not working
-// raise - => =
-// raise shift - => +
-// insert
-// prsc
-// =## 
 / {
+    combos {
+        compatible = "zmk,combos";
+        combo_n1 {
+            timeout-ms = <50>;
+            key-positions = <13 25>;
+            bindings = <&kp N1>;
+        };
+        combo_f1 {
+            timeout-ms = <50>;
+            key-positions = <13 25>;
+            bindings = <&kp F1>;
+            layers = <1>;
+       };
+    };
+	
 	keymap {
 		compatible = "zmk,keymap";
 
@@ -37,7 +43,7 @@
 // |  V-    | V+     | CAG(W) |        |        |      |                        |  F7    |  F8   |  F9     |  F10 |  F11  |  F12  |
 // |  ESC   | CAG(A) | CAG(S) | CAG(D) | CAG(F) |      |                        |        |       |  CAG(K) |      |       |   ~   |
 // |  P/P   | CAG(Z) | CAG(X) | CAG(C) | CAG(V) |      |          |  |          | CAG(N) |  _    |  +      |  {   |   }   |   \   |
-//                            | PREV   | NEXT   |      | CAG(ESC) |  | CAG(RET) |  ADJ   |       |
+//                            | PREV   | NEXT   |      | CS(ESC)  |  | CAG(RET) |  ADJ   |       |
 			bindings = <
 &bt BT_CLR   &bt BT_SEL 0      &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3      &trans                                         &kp F1            &kp F2      &kp F3            &kp F4    &kp F5     &kp F6
 &kp K_VOL_DN &kp K_VOL_UP      &kp LC(LA(LG(W))) &trans            &trans            &trans                                         &kp F7            &kp F8      &kp F9            &kp F10   &kp F11    &kp F12

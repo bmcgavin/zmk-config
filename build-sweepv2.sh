@@ -1,0 +1,1 @@
+for hand in left right; do west build -s app -p -b nice_nano -d build/zephyr/cradio_${hand} -- -DSHIELD=cradio_${hand} -DKEYMAP=default -DZMK_CONFIG=/home/rich/Documents/Code/zmk-config/cradio; done

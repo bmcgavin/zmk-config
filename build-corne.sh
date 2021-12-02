@@ -1,0 +1,1 @@
+for hand in left right; do west build -s app -p -b nice_nano -d build/zephyr/corne_${hand} -- -DSHIELD=corne_${hand} -DKEYMAP=default -DZMK_CONFIG=/home/rich/Documents/Code/zmk-config/corne ; done
