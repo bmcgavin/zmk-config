@@ -75,30 +75,35 @@
       timeout-ms = <50>;
       bindings = <&kp TAB>;
       key-positions = <10 11>;
+      layers = <0 1 2 3>;
     };
 
     combo_ralt{
       timeout-ms = <50>;
       bindings = <&kp RALT>;
       key-positions = <17 16>;
+      layers = <0 1 2 3>;
     };
 
     combo_lalt{
       timeout-ms = <50>;
       bindings = <&kp LALT>;
       key-positions = <11 12>;
+      layers = <0 1 2 3>;
     };
 
     combo_lgui{
       timeout-ms = <50>;
       bindings = <&kp LGUI>;
       key-positions = <12 13>;
+      layers = <0 1 2 3>;
     };
 
     combo_rgui{
       timeout-ms = <50>;
       bindings = <&kp RGUI>;
       key-positions = <17 18>;
+      layers = <0 1 2 3>;
     };
   };
 }; 
