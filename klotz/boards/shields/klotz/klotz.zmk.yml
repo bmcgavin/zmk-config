@@ -8,6 +8,7 @@ exposes:
 features:
   - keys
   - encoder
+  - studio
 siblings:
   - klotz_left
   - klotz_right
